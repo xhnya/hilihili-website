@@ -4,7 +4,7 @@ import PageHead from "@/components/PageHead/PageHead.vue";
 </script>
 
 <template>
-  <PageHead></PageHead>
+<!--  <PageHead></PageHead>-->
   <router-view></router-view>
 </template>
 

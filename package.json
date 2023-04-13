@@ -13,8 +13,10 @@
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@videojs-player/vue": "^1.0.0",
     "element-plus": "^2.3.0",
     "element-ui": "^2.15.13",
+    "video.js": "^8.0.4",
     "vue": "^3.2.45"
   },
   "devDependencies": {
@@ -23,6 +25,7 @@
     "vite": "^4.0.0",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-svg-loader": "^4.0.0",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vuex": "^4.1.0"
   }
 }

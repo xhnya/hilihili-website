@@ -24,5 +24,15 @@ module.exports = {
             })
             .end()
 
-    }
+    },
+    devServer:{
+        port: 80,
+        open: true,
+        proxy:{
+            '/bilibili':{
+                target: 'http://localhost:7001',
+                //pathRewrite:{'^/api':''},路径重写
+            }
+        }
+    },
 }

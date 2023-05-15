@@ -24,6 +24,6 @@ const app = createApp(App)
 
 app.use(router)
 app.use(VueVideoPlayer)
-app.component('font-awesome-icon', FontAwesomeIcon);
 app.use(ElementPlus)
+app.component('font-awesome-icon', FontAwesomeIcon);
 app.mount('#app')

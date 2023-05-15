@@ -1,5 +1,4 @@
-import game from '@/api/game'
-import {getGameInfo, reqGameTypeList} from '@/api/game'
+
 
 const state = {
     videoInfo: {}

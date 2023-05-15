@@ -3,15 +3,53 @@
     <div class="content-body">
       <el-row :gutter="20">
         <el-col :span="10">
-          <el-card :style="{ backgroundColor: cardColor }" :body-style="{ padding: '0px' }">
-            <el-carousel height="450px">
-
-              <el-carousel-item @change="handleChange(item.imgUrl)"  v-for="item in carouselItems" :key="item.id">
-                <el-image fit="fit"
-                          src="https://img.xhnya.top/img/bilibili/fbede2a9ac053f46a009b703554cb24d83ccd8ba.jpg">
-                </el-image>
+          <el-card style="height: 450px;" :style="{ backgroundColor: cardColor }" :body-style="{ padding: '0px' }">
+            <el-carousel
+                arrow="never"
+                ref="carouselSet"
+                indicator-position="none"
+                height="450px">
+              <el-carousel-item @change="handleChange(item.imageUrl)" v-for="item in carouselItems" :key="item.id">
+                <div class="carousel-item-container">
+                  <el-image
+                      fit="fill"
+                      src="https://img.xhnya.top/img/bilibili/preview.jpg">
+                  </el-image>
+                  <div>
+                    <div class="carousel-text my-carousel-bottom">
+                      <div style="margin-left: 10px;">
+                        <a href=""><span> {{ item.text }}</span></a>
+                        <div>
+<!--                          TODO: 动画显示效果，选中的时候的效果-->
+                          <ul class="icon-not-gray"><!--[-->
+                            <li :key="itemIcon.id" v-for="itemIcon in carouselItems"
+                                class="my-icon-is-active">
+                              <div class="before"></div>
+                              <div class="after"></div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="buttons not-gray"><!---->
+                          <div>
+                            <button @click="this.$refs.carouselSet.prev" class="buttons-not-gray">
+                              <svg style="transform:rotate(180deg);">
+                                <use xlink:href="#widget-arrow"></use>
+                              </svg>
+                            </button>
+                            <button @click="this.$refs.carouselSet.next" class="buttons-not-gray">
+                              <svg>
+                                <use xlink:href="#widget-arrow"></use>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </el-carousel-item>
-
             </el-carousel>
           </el-card>
         </el-col>
@@ -33,7 +71,7 @@
             <el-col v-for="item in 3" :key="item" :span="8">
               <el-card class="content-body-card" shadow="never" :body-style="{ padding: '0px' }">
 
-                <el-image fit="fit"
+                <el-image fit="fill"
                           src="https://img.xhnya.top/img/bilibili/fbede2a9ac053f46a009b703554cb24d83ccd8ba.jpg"
                           class="content-card-image">
 
@@ -54,37 +92,39 @@
 </template>
 
 <script>
+
 export default {
   name: "content",
   data() {
     return {
       currentDate: new Date(),
       cardColor: '',
+      rotationChartCount: 0,
       carouselItems: [
         {
           id: 1,
-          imgUrl: 'https://img.xhnya.top/img/bilibili/fbede2a9ac053f46a009b703554cb24d83ccd8ba.jpg',
-          text: 'hahahah'
+          imageUrl: 'https://img.xhnya.top/img/bilibili/preview.jpg',
+          text: 'hahaxxxhah'
         },
         {
           id: 2,
-          imgUrl: 'https://img.xhnya.top/img/bilibili/fbede2a9ac053f46a009b703554cb24d83ccd8ba.jpg',
-          text: 'hahahah'
+          imageUrl: 'https://img.xhnya.top/img/bilibili/fbede2a9ac053f46a009b703554cb24d83ccd8ba.jpg',
+          text: 'hahaasdsadhah'
         },
         {
           id: 3,
-          imgUrl: 'https://img.xhnya.top/img/bilibili/fbede2a9ac053f46a009b703554cb24d83ccd8ba.jpg',
-          text: 'hahahah'
+          imageUrl: 'https://img.xhnya.top/img/bilibili/fbede2a9ac053f46a009b703554cb24d83ccd8ba.jpg',
+          text: 'hahaasdsadhah'
         },
         {
           id: 4,
-          imgUrl: 'https://img.xhnya.top/img/bilibili/fbede2a9ac053f46a009b703554cb24d83ccd8ba.jpg',
-          text: 'hahahah'
+          imageUrl: 'https://img.xhnya.top/img/bilibili/fbede2a9ac053f46a009b703554cb24d83ccd8ba.jpg',
+          text: 'haasdashahah'
         },
         {
           id: 5,
-          imgUrl: 'https://img.xhnya.top/img/bilibili/fbede2a9ac053f46a009b703554cb24d83ccd8ba.jpg',
-          text: 'hahahah'
+          imageUrl: 'https://img.xhnya.top/img/bilibili/fbede2a9ac053f46a009b703554cb24d83ccd8ba.jpg',
+          text: 'hahahaadsaceh'
         }
       ]
     }
@@ -93,12 +133,17 @@ export default {
     handleChange(val) {
       // 获取当前显示的图片
       const currentImg = this.images[val];
+      // 获取主色调
+      // getImageThemeColor(currentImg).then(color=>{
+      //   console.log(color)
+      // })
+    },
+    // getBannerList(){
+    //   pageApi.getBannerList().then((res)=>{
+    //     console.log(res)
+    //   })
+    // }
 
-      // 使用 getDominantColor 函数获取主色调
-      getDominantColor(currentImg).then(color => {
-        this.cardColor = color;
-      });
-    }
 
   }
 
@@ -111,13 +156,6 @@ export default {
   padding-right: 8%;
 }
 
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 14px;
-  opacity: 0.75;
-  line-height: 150px;
-  margin: 0;
-}
 
 .content-body-card {
   width: 300px;
@@ -158,26 +196,86 @@ export default {
   color: #409eff;
 }
 
-.el-carousel__indicators {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
+
+.carousel-item-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.el-carousel__indicators .custom-indicators li {
-  display: inline-block;
+.carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-text {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  color: #00AEEC;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.my-carousel-bottom {
+  background-color: #F73809;
+  width: 100%;
+  height: 80px;
+}
+
+.buttons.not-gray {
+  bottom: 42px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  z-index: 2;
+}
+
+.buttons svg {
   width: 12px;
   height: 12px;
-  margin-right: 10px;
+  color: #b9afaf;
+}
+
+.buttons-not-gray {
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  margin-right: 12px;
+  background-color: rgba(255, 255, 255, .1);
+}
+
+.icon-not-gray {
+  margin-left: -1.5px;
+  font-size: 0;
+  transform: translateZ(0);
+}
+
+.icon-not-gray li {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 4px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, .4);
+  overflow: hidden;
   cursor: pointer;
 }
 
-.el-carousel__indicators .custom-indicators li.is-active {
-  background-color: #fff;
+.my-icon-is-active {
+  width: 14px;
+  height: 14px;
+  margin: 1px;
+  background-color: transparent;
 }
 
 </style>

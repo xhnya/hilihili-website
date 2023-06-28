@@ -54,6 +54,7 @@
           </el-card>
         </el-col>
         <el-col :span="14">
+          <!-- TODO: 改成响应式 -->
           <el-row style="margin-bottom: 20px;" :gutter="20">
             <el-col v-for="item in 3" :key="item" :span="8">
               <el-card class="content-body-card" shadow="never" :body-style="{ padding: '0px' }">

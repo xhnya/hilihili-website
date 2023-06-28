@@ -10,10 +10,13 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
+
 library.add(faUser);
 //视频播放组件
 import VueVideoPlayer from '@videojs-player/vue'
 import 'video.js/dist/video-js.css'
+
+import '@/assets/style/variables.less'
 
 
 

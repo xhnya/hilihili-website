@@ -16,7 +16,6 @@ library.add(faUser);
 import VueVideoPlayer from '@videojs-player/vue'
 import 'video.js/dist/video-js.css'
 
-import '@/assets/style/variables.less'
 
 
 

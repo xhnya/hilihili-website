@@ -8,6 +8,12 @@ import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import gloalComponent from '@/components'
 import router from './router'
+// import {store} from "@/store";
+import Antd from 'ant-design-vue';
+// import 'ant-design-vue/dist/reset.css';
+
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
 
 const app = createApp(App)
 app.use(ElementPlus, {
@@ -16,5 +22,13 @@ app.use(ElementPlus, {
 app.use(router)
 
 import '@/styles/index.scss'
+
 app.use(gloalComponent)
+app.use(Antd)
+
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
+
+// app.use(store)
 app.mount('#app')

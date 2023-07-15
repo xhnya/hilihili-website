@@ -9,11 +9,10 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import gloalComponent from '@/components'
 import router from './router'
 // import {store} from "@/store";
-import Antd from 'ant-design-vue';
+import Antd from 'ant-design-vue'
 // import 'ant-design-vue/dist/reset.css';
 
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
-
 
 const app = createApp(App)
 app.use(ElementPlus, {

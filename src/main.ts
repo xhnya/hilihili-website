@@ -11,6 +11,9 @@ import router from './router'
 // import {store} from "@/store";
 import Antd from 'ant-design-vue'
 // import 'ant-design-vue/dist/reset.css';
+//svg插件需要配置代码
+import 'virtual:svg-icons-register'
+
 
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 

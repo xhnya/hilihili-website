@@ -105,8 +105,8 @@ video {
 }
 
 html, body {
-  height: 100vw;
-  width: 100vw;
+  height: 100vw !important;
+  width: 100vw !important;
   margin: 0;
   padding: 0;
   overflow: hidden;

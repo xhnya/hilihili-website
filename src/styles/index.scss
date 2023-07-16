@@ -16,3 +16,11 @@
   max-width: inherit;
   padding: 0;
 }
+
+
+//对话框全局居中
+.el-dialog__wrapper {
+  //top: 50% !important;
+  ////left: 50% !important;
+  //transform: translate(-50%, -50%);
+}
